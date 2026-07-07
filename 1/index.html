@@ -21,7 +21,7 @@
       --blue-br: #5aa2f5;
       --tx: #ece7fb;
       --tx-mut: #a99fca;
-      --tx-dim: #6f6690;
+      --tx-dim: #8c83ad;
       --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
       --sans: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
       --display: "Space Grotesk", "Nunito", system-ui, sans-serif;
@@ -76,7 +76,7 @@
     .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tx-dim); font-weight: 500; }
     .input {
       font-family: var(--sans); font-size: 15px; color: var(--tx); width: 100%;
-      background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 9px;
+      background: var(--bg-2); border: 1px solid var(--line); border-radius: 9px;
       padding: 12px 14px; outline: none; transition: border-color 0.15s, box-shadow 0.15s;
     }
     .input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22); }
@@ -91,17 +91,6 @@
     }
     .btn-deep:hover { filter: brightness(1.1); }
     .btn-deep:active { transform: translateY(1px); }
-    .divider-or { display: flex; align-items: center; gap: 12px; margin: 24px 0 16px; }
-    .divider-or::before, .divider-or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-    .divider-or span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tx-dim); }
-    .btn-google {
-      width: 100%; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;
-      font-family: var(--sans); font-weight: 700; font-size: 15px; color: var(--tx);
-      background: rgba(255, 255, 255, 0.045); border: 1px solid var(--line-strong); border-radius: 11px;
-      padding: 12px 20px; cursor: pointer; transition: background 0.15s, border-color 0.15s;
-    }
-    .btn-google:hover { background: rgba(255, 255, 255, 0.09); border-color: rgba(168, 133, 247, 0.4); }
-    .btn-google svg { flex-shrink: 0; }
     .foot { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; }
     .linkbtn { background: none; border: none; color: var(--tx-mut); font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.03em; cursor: pointer; padding: 0; }
     .linkbtn:hover { color: #5aa2f5; }
@@ -153,7 +142,10 @@
     @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
     .step { display: flex; flex-direction: column; }
     .step-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-    .step-num { width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(150deg, #7c3aed, #2563eb); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 700; display: grid; place-items: center; }
+    .step-num { width: 24px; height: 24px; border-radius: 999px; background: rgba(124, 58, 237, 0.12); border: 1px solid var(--line-strong); color: #a78bfa; font-family: var(--mono); font-size: 12px; font-weight: 700; display: grid; place-items: center; }
+    .toggle-inline { display: flex; align-items: center; gap: 10px; }
+    .toggle-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tx-dim); }
+    .transcribe-note { height: 160px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; border: 1px dashed var(--line-strong); border-radius: 12px; background: var(--bg-2); color: var(--tx-mut); font-size: 13.5px; line-height: 1.55; }
     .step-title { font-family: var(--display); font-weight: 600; font-size: 15px; }
     .step-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
     .dropzone {
@@ -169,14 +161,16 @@
     .drop-sub { color: var(--tx-mut); font-size: 13px; margin-top: 5px; }
     .linkbtn2 { margin-top: 14px; background: none; border: 1px solid var(--line-strong); color: var(--tx-mut); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 8px; cursor: pointer; }
     .linkbtn2:hover { color: var(--tx); border-color: #3b82f6; }
-    .textarea.grow { flex: 1; min-height: 140px; resize: none; }
+    .textarea.grow { height: 160px; resize: none; display: block; }
     .analyze-bar { margin-top: 20px; display: flex; justify-content: center; }
     .btn-analyze {
-      width: 100%; border: none; cursor: pointer; font-family: var(--display); font-weight: 600; font-size: 17px; color: #f3efff;
-      padding: 17px 24px; border-radius: 13px; background: linear-gradient(180deg, #6d28d9, #4a1a97);
-      box-shadow: 0 16px 38px -10px rgba(46, 16, 101, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      border: none; cursor: pointer; font-family: var(--display); font-weight: 600; font-size: 15.5px; color: #f3efff;
+      padding: 13px 20px; border-radius: 11px; background: linear-gradient(180deg, #6d28d9, #4a1a97);
+      box-shadow: 0 12px 28px -8px rgba(46, 16, 101, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.16);
       transition: filter 0.15s, transform 0.03s;
     }
+    .btn-analyze svg { flex-shrink: 0; }
     .btn-analyze:hover { filter: brightness(1.1); }
     .btn-analyze:active { transform: translateY(1px); }
     .btn-analyze:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
@@ -190,14 +184,14 @@
     .wave i { width: 3px; border-radius: 2px; background: linear-gradient(180deg, #a855f7, #3b82f6); opacity: 0.8; }
     .textarea {
       font-family: var(--sans); font-size: 15px; color: var(--tx); width: 100%;
-      background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 9px;
+      background: var(--bg-2); border: 1px solid var(--line); border-radius: 9px;
       padding: 12px 14px; outline: none; resize: vertical; min-height: 118px; line-height: 1.55;
       transition: border-color 0.15s, box-shadow 0.15s;
     }
     .textarea:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22); }
     .select {
       font-family: var(--sans); font-size: 15px; color: var(--tx); width: 100%;
-      background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 9px;
+      background: var(--bg-2); border: 1px solid var(--line); border-radius: 9px;
       padding: 12px 34px 12px 14px; outline: none; appearance: none; cursor: pointer;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23a99fca' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 12px center;
@@ -247,7 +241,7 @@
     .detail-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin: 6px 0 18px; }
     .detail-title { font-family: var(--display); font-weight: 600; font-size: 30px; letter-spacing: -0.02em; margin: 0 0 12px; }
     .score-big { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    .score-num { font-family: var(--mono); font-weight: 700; font-size: 54px; line-height: 1; letter-spacing: -0.055em; background: linear-gradient(120deg, #a855f7, #3b82f6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .score-num { font-family: var(--mono); font-weight: 700; font-size: 54px; line-height: 1; letter-spacing: -0.08em; background: linear-gradient(120deg, #a855f7, #3b82f6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .score-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tx-dim); line-height: 1.35; }
     .dtabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
     .dtabs button { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tx-dim); background: none; border: none; border-bottom: 2px solid transparent; padding: 11px 14px; cursor: pointer; }
@@ -307,7 +301,7 @@
     .lib-thead { cursor: default; border-top: none; }
     .lib-thead:hover { background: none; }
     .lib-thead > div { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tx-dim); }
-    .lib-score { font-family: var(--mono); font-weight: 700; font-size: 27px; letter-spacing: -0.055em; background: linear-gradient(120deg, #a855f7, #3b82f6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .lib-score { font-family: var(--mono); font-weight: 700; font-size: 27px; letter-spacing: -0.08em; background: linear-gradient(120deg, #a855f7, #3b82f6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .lib-title { font-family: var(--display); font-weight: 600; font-size: 15px; color: var(--tx); }
     .lib-metaline { font-size: 11px; color: var(--tx-dim); margin-top: 3px; }
     .lib-moods { display: flex; gap: 6px; flex-wrap: nowrap; overflow: hidden; align-items: center; }
@@ -377,17 +371,11 @@
 
     /* ── Login ── */
     const COPY = {
-      login:  { title: "Log in",         sub: "Welcome back to your catalog." },
+      login:  { title: "Log in",         sub: "Welcome back to your song library." },
       signup: { title: "Create account", sub: "Start building your song library." },
       forgot: { title: "Reset password", sub: "We'll send you a reset link." },
     };
     let mode = "login";
-    const GOOGLE_SVG = `<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
-      <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
-      <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
-      <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
-      <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
-    </svg>`;
 
     function renderLogin() {
       const c = COPY[mode];
@@ -396,7 +384,6 @@
       const foot = mode === "login"
         ? `<button class="linkbtn" data-mode="forgot">Forgot password?</button><button class="linkbtn" data-mode="signup">Create account</button>`
         : `<button class="linkbtn" data-mode="login">← Back to log in</button>`;
-      const googleBlock = mode !== "forgot" ? `<div class="divider-or"><span>or</span></div><button type="button" class="btn-google" id="google">${GOOGLE_SVG} Continue with Google</button>` : "";
 
       document.getElementById("loginBody").innerHTML = `
         <h2 class="title">${c.title}</h2>
@@ -407,11 +394,9 @@
           ${passField}
           <button class="btn-deep" type="submit">${c.title}</button>
         </form>
-        ${googleBlock}
         <div class="foot">${foot}</div>`;
 
       document.getElementById("form").addEventListener("submit", (e) => { e.preventDefault(); enterApp(); });
-      const g = document.getElementById("google"); if (g) g.addEventListener("click", enterApp);
       document.querySelectorAll(".linkbtn").forEach((b) => b.addEventListener("click", () => { mode = b.dataset.mode; renderLogin(); }));
     }
 
@@ -436,6 +421,7 @@
     /* ── App views ── */
     let view = "upload";        // upload | library | detail
     let fileAdded = false;
+    let transcribeOn = false;
     let detailTab = "overview"; // overview | lyrics | production
     let currentSong = null;
     const GENRES = ["Auto-detect", "Country", "Pop Country", "Americana", "Alt-Country", "Southern Rock", "Folk"];
@@ -707,14 +693,19 @@ Chorus`;
             <div class="dropzone ${fileAdded ? "filled" : ""}" id="drop">${fileAdded ? dropFilledHTML() : dropEmptyHTML()}</div>
           </div>
           <div class="sec upload-sec">
-            <div class="step-head"><span class="step-num">2</span><span class="step-title">Add your lyrics</span></div>
-            <textarea class="textarea grow" id="lyrics" placeholder="Paste your lyrics here…"></textarea>
+            <div class="step-head" style="justify-content:space-between">
+              <div style="display:flex;align-items:center;gap:10px"><span class="step-num">2</span><span class="step-title">Add your lyrics</span></div>
+              <div class="toggle-inline"><span class="toggle-label">Auto-transcribe</span><div class="switch ${transcribeOn ? "on" : ""}" id="transcribeToggle"><span class="knob"></span></div></div>
+            </div>
+            ${transcribeOn
+              ? `<div class="transcribe-note">We'll transcribe the lyrics from your audio automatically.<br>For best accuracy, paste your own lyrics instead.</div>`
+              : `<textarea class="textarea grow" id="lyrics" placeholder="Paste your lyrics here…"></textarea>`}
             <div class="field" style="margin-top:14px">
               <span class="label">Select genre</span>
               <select class="select">${GENRES.map((g) => `<option>${g}</option>`).join("")}</select>
             </div>
           </div>
-          <div class="sec" id="analyzeBar"><button class="btn-analyze" id="analyze" disabled>Analyze song</button></div>
+          <div class="sec" id="analyzeBar"><button class="btn-analyze" id="analyze" disabled><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 12h2l2-7 3 15 3-11 2 6h6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Analyze song</button></div>
         </div>
       </div>`;
     }
@@ -823,6 +814,7 @@ Chorus`;
               <div class="statcell"><span class="sk">Genre</span><span class="sv">${s.genre}</span></div>
               <div class="statcell"><span class="sk">BPM</span><span class="sv">${s.bpm}</span></div>
               <div class="statcell"><span class="sk">Key</span><span class="sv">${s.key}</span></div>
+              <div class="statcell"><span class="sk">Added</span><span class="sv">${s.added}</span></div>
             </div>
           </div>
           <div class="sec tabs-sec">
@@ -839,9 +831,10 @@ Chorus`;
 
     function checkReady() {
       const analyze = document.getElementById("analyze");
+      if (!analyze) return;
       const lyrics = document.getElementById("lyrics");
-      if (!analyze || !lyrics) return;
-      analyze.disabled = !(fileAdded && lyrics.value.trim().length > 0);
+      const hasLyrics = lyrics && lyrics.value.trim().length > 0;
+      analyze.disabled = !(fileAdded && (transcribeOn || hasLyrics));
     }
 
     function wireUpload() {
@@ -861,6 +854,8 @@ Chorus`;
         lyrics.addEventListener("input", checkReady);
         lyrics.addEventListener("focus", () => { if (!lyrics.value.trim()) { lyrics.value = DEMO_LYRICS; checkReady(); } });
       }
+      const tog = document.getElementById("transcribeToggle");
+      if (tog) tog.addEventListener("click", () => { transcribeOn = !transcribeOn; renderMain(); });
       const analyze = document.getElementById("analyze");
       if (analyze) analyze.addEventListener("click", runAnalyze);
       checkReady();
